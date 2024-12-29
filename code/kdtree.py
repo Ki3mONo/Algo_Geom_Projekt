@@ -2,18 +2,7 @@ import numpy as np
 from collections import defaultdict
 from typing import Optional, Generator, Tuple
 from operator import itemgetter
-
-
-class Rectangle:
-    def __init__(self, xmin: float, ymin: float, xmax: float, ymax: float):
-        self.extreme = [[xmin, xmax], [ymin, ymax]]
-
-    def contains(self, point: Tuple[float, float]) -> bool:
-        return (
-            self.extreme[0][0] <= point[0] <= self.extreme[0][1]
-            and self.extreme[1][0] <= point[1] <= self.extreme[1][1]
-        )
-
+from rectangle import Rectangle
 
 class Node:
     __slots__ = ["point", "left", "right", "count"]
