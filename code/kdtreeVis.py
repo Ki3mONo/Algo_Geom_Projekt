@@ -94,7 +94,11 @@ class KdTreeVis:
             left_boundary = Rectangle(boundary.extreme[0][0], boundary.extreme[1][0], boundary.extreme[0][1], median_coord)
             right_boundary = Rectangle(boundary.extreme[0][0], median_coord, boundary.extreme[0][1], boundary.extreme[1][1])
 
-        left_points = points[points[:, axis] < median_coord]
+        indices = np.arange(len(points))
+        mask_left = (points[:, axis] < median_coord) | (
+            (points[:, axis] == median_coord) & (indices != median_idx)
+        )
+        left_points = points[mask_left]
         self.vis.add_point([tuple(p) for p in left_points], color='pink')
         self.vis.add_point([tuple(p) for p in left_points], color='black')
 
@@ -151,12 +155,12 @@ class KdTreeVis:
         return corners
 
 
-def main():
-    points = np.array([[2, 3], [5, 7], [9, 6], [4, 7], [5, 7], [7, 2], [6, 6], [15, 15], [5, 15], [16, 15], [5, 5]])
-    quadtree = KdTreeVis(points)
-    rectangle = Rectangle(5, 5, 15, 15)
-    quadtree.vis.save_gif("kdtree_build", interval=250)
-    quadtree.search_rectangle(rectangle)
+# def main():
+#     points = np.array([[2, 3], [5, 7], [9, 6], [4, 7], [5, 7], [7, 2], [6, 6], [15, 15], [5, 15], [16, 15], [5, 5]])
+#     quadtree = KdTreeVis(points)
+#     rectangle = Rectangle(5, 5, 15, 15)
+#     quadtree.vis.save_gif("kdtree_build", interval=250)
+#     quadtree.search_rectangle(rectangle)
 
 
-main()
+# main()

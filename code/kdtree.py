@@ -2,7 +2,7 @@ import numpy as np
 from collections import defaultdict
 from typing import Optional, Generator, Tuple
 from operator import itemgetter
-from rectangle import Rectangle
+from .rectangle import Rectangle
 
 class Node:
     __slots__ = ["point", "left", "right", "count"]

@@ -1,6 +1,6 @@
 import numpy as np
 from typing import Optional, Generator, Tuple, List, Dict
-from rectangle import Rectangle
+from .rectangle import Rectangle
 
 
 class QuadTreeNode:
