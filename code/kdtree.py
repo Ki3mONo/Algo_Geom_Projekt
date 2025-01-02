@@ -3,7 +3,9 @@ from collections import defaultdict
 from typing import Optional, Generator, Tuple
 from operator import itemgetter
 from .rectangle import Rectangle
+import sys
 
+sys.setrecursionlimit(10**6)
 class Node:
     __slots__ = ["point", "left", "right", "count"]
 

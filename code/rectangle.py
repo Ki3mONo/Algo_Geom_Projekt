@@ -3,6 +3,9 @@ from typing import Tuple
 class Rectangle:
     def __init__(self, xmin: float, ymin: float, xmax: float, ymax: float):
         self.extreme = [[xmin, xmax], [ymin, ymax]]
+        for p1, p2 in self.extreme:
+            if p1 > p2:
+                raise ValueError("Invalid rectangle definition")
 
     def contains(self, point: Tuple[float, float]) -> bool:
         return (
