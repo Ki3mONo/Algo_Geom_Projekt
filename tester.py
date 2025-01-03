@@ -45,9 +45,9 @@ def check_if_equal(l1: List["Node"], l2: List[Tuple[Tuple[float, float], int]], 
 
 def test_methods():
     with open("times.csv", "w") as f:
-        f.write("test,n,KdTree Build Time,QuadTree Build Time,KdTree Query Time,QuadTree Query Time\n")
+        f.write("test_func,size,kd_time,quad_time,kd_query_time,quad_query_time\n")
     for test_func, params in all_tests:
-        for size in [100, 500, 1000, 2500, 5000, 10000]:
+        for size in [1000, 5000, 10000, 20000, 40000, 60000, 80000, 100000]:
             print(f"Running {test_func.__name__} with n = {size}...")
             points, rect = test_func(size, **params)
             

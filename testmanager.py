@@ -4,19 +4,19 @@ import matplotlib.pyplot as plt
 
 def random_uniform_test(count: int, minval: float = -100, maxval: float = 100, dimension: int = 2):
     points = np.random.uniform(minval, maxval, (count, dimension))
-    rect = Rectangle(minval, minval, minval + (maxval - minval) * 0.5, minval + (maxval - minval) * 0.5)
+    rect = Rectangle(0.3*maxval, 0.3*maxval, minval + (maxval - minval) * 0.7, minval + (maxval - minval) * 0.7)
     return points, rect
 
 def random_normal_test(count: int, mean: float = 0, std: float = 1, dimension: int = 2):
     points = np.random.normal(mean, std, (count, dimension))
     minval = mean - std
     maxval = mean + std
-    rect = Rectangle(minval, minval, minval + (maxval - minval) * 0.5, minval + (maxval - minval) * 0.5)
+    rect = Rectangle(minval, minval, 0.8*minval + (maxval - minval), 0.8*minval + (maxval - minval))
     return points, rect
 
 def random_integer_test(count: int, low: int = 0, high: int = 100, dimension: int = 2):
     points = np.random.randint(low, high, (count, dimension))
-    rect = Rectangle(low, low, low + (high - low) * 0.5, low + (high - low) * 0.5)
+    rect = Rectangle(0.2*high, low, 0.9 * high, 0.9 * high)
     return points, rect
 
 def grid_test(count: int, minval: float = -100, maxval: float = 100, dimension: int = 2):
@@ -38,15 +38,15 @@ def circle_test(count: int, radius: float = 1, dimension: int = 2):
         y = radius * np.sin(angle)
         points.append([x, y])
     points = np.array(points)
-    rect = Rectangle(-radius * 0.5, -radius * 0.5, radius * 0.5, radius * 0.5)
+    rect = Rectangle(-radius * 0.5, -radius, radius * 0.5, radius)
     return points, rect
 
-def line_test(count: int, x1: float = -10, y1: float = -10, x2: float = 10, y2: float = 10):
+def line_test(count: int, x1: float = -50, y1: float = -50, x2: float = 50, y2: float = 50):
     points = np.linspace([x1, y1], [x2, y2], count)
     rect = Rectangle(
         min(x1, x2), min(y1, y2), 
-        min(x1, x2) + abs(x2 - x1) * 0.5, 
-        min(y1, y2) + abs(y2 - y1) * 0.5
+        min(x1, x2) + abs(x2 - x1) * 0.7, 
+        min(y1, y2) + abs(y2 - y1) * 0.7
     )
     return points, rect
 
@@ -80,7 +80,7 @@ def rectangle_sides_test(count: int, minval: float = -100, maxval: float = 100, 
     rect = Rectangle(minval, minval, maxval * 0.5, maxval * 0.5)
     return points, rect
 
-def rectangle_with_diagonals_test(count: int, a: float = 10, b: float = 10, dimension: int = 2, on_diagonal_ratio: float = 0.5):
+def rectangle_with_diagonals_test(count: int, a: float = 50, b: float = 50, dimension: int = 2, on_diagonal_ratio: float = 0.5):
     diag_count = int(count * on_diagonal_ratio)
     side_count = count - diag_count
 
@@ -112,7 +112,7 @@ def rectangle_with_diagonals_test(count: int, a: float = 10, b: float = 10, dime
         side_points.append([x, y])
 
     points = np.array(diag_points + side_points)
-    rect = Rectangle(0, 0, 0.6*a, 0.6*b)
+    rect = Rectangle(0, 0.1*b, 0.7*a, 0.7*b)
     return points, rect
 
 def test_two_clusters(count: int, minval: float = -100, maxval: float = 100, dimension: int = 2):
@@ -125,7 +125,7 @@ def test_two_clusters(count: int, minval: float = -100, maxval: float = 100, dim
         y = np.random.uniform(maxval * 0.5, maxval)
         points.append([x, y])
     points = np.array(points)
-    rect = Rectangle(minval * 0.5, minval * 0.5, maxval * 0.5, maxval * 0.5)
+    rect = Rectangle(minval * 0.7, minval * 0.7, maxval * 0.7, maxval * 0.7)
     return points, rect
 
 def test_with_outliers(count: int, minval: float = -100, maxval: float = 100, dimension: int = 2):
