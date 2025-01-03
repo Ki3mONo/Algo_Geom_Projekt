@@ -1,9 +1,8 @@
 import numpy as np
 from collections import defaultdict
 from typing import Optional, List, Tuple, Generator
-from visualizer.main import Visualizer
-from rectangle import Rectangle
-from operator import itemgetter
+from .visualizer.main import Visualizer
+from .rectangle import Rectangle
 
 class Node:
     __slots__ = ["point", "left", "right", "count"]

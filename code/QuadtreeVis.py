@@ -1,7 +1,7 @@
 import numpy as np
-from visualizer.main import Visualizer
+from .visualizer.main import Visualizer
 from typing import Optional, Generator, Tuple, List, Dict
-from rectangle import Rectangle
+from .rectangle import Rectangle
 
 class QuadTreeNode:
     def __init__(
@@ -34,7 +34,7 @@ class QuadTreeVis:
         self.boundary = Rectangle(xmin, ymin, xmax, ymax)
         
         self.vis.add_polygon(self._rectangle_as_polygon(self.boundary), color='#2a2a2a',fill=False)
-
+        self.vis.add_point(self.points, color='black')
         all_indices = np.arange(points.shape[0])
         self.root = self._build(all_indices, self.boundary)
 
@@ -84,6 +84,7 @@ class QuadTreeVis:
 
 
     def search_rectangle(self, rectangle: Rectangle) -> List[Tuple[float, float]]:
+        self.vis.clear()
         self.vis.add_point(self.points, color='black')
         self.vis.add_polygon(self._rectangle_as_polygon(self.boundary), color='#2a2a2a', fill=False)
         self.vis.add_polygon(self._rectangle_as_polygon(rectangle), color='blue', fill=False)
