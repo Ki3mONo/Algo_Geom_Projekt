@@ -1,7 +1,7 @@
 from testmanager import *
-from code.kdtree import *
-from code.Quadtree import *
-from code.rectangle import *
+from src.kdtree import *
+from src.Quadtree import *
+from src.rectangle import *
 from typing import List, Tuple, Optional
 import inspect
 import sys

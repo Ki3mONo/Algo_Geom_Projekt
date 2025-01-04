@@ -98,22 +98,22 @@ class KdTreeVis:
             (points[:, axis] == median_coord) & (indices != median_idx)
         )
         left_points = points[mask_left]
-        self.vis.add_point([tuple(p) for p in left_points], color='pink')
-        self.vis.add_point([tuple(p) for p in left_points], color='black')
+        # self.vis.add_point([tuple(p) for p in left_points], color='pink')
+        # self.vis.add_point([tuple(p) for p in left_points], color='black')
 
         left_child = self.build(left_points, left_boundary, depth + 1)
 
-        self.vis.add_point([tuple(p) for p in left_points], color='black')
+        # self.vis.add_point([tuple(p) for p in left_points], color='black')
 
         right_points = points[points[:, axis] > median_coord]
-        self.vis.add_point([tuple(p) for p in right_points], color='pink')
-        self.vis.add_point([tuple(p) for p in right_points], color='black')
+        # self.vis.add_point([tuple(p) for p in right_points], color='pink')
+        # self.vis.add_point([tuple(p) for p in right_points], color='black')
 
         right_child = self.build(right_points, right_boundary, depth + 1)
 
-        self.vis.add_point([tuple(p) for p in right_points], color='black')
+        # self.vis.add_point([tuple(p) for p in right_points], color='black')
 
-        self.vis.add_point([median_point], color='black')
+        # self.vis.add_point([median_point], color='black')
 
         
         return Node(

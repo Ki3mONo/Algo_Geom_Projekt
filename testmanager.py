@@ -1,5 +1,5 @@
 import numpy as np
-from code.rectangle import Rectangle
+from src.rectangle import Rectangle
 import matplotlib.pyplot as plt
 
 def random_uniform_test(count: int, minval: float = -100, maxval: float = 100, dimension: int = 2):
