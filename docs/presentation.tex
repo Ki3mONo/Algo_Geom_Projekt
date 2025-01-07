@@ -417,7 +417,7 @@ Podział stosowany w układach geodezyjnych jest analogiczny do struktury drzewa
 
 \begin{section}{\texttt{Kd-drzewa}}
 
-\begin{frame}{Ogólna idea \texttt{kd-drzewo}}
+\begin{frame}{Ogólna idea \texttt{kd-drzewa}}
     \textbf{Dlaczego kd-drzewo?}\\
     \vspace{0.4em}
     \begin{itemize}
@@ -541,7 +541,7 @@ Przechodzimy do węzłów lewego i/lub prawego, powtarzając ten sam schemat:
 \textbf{Krok 4: Zakończenie wyszukiwania}\\[3pt]
 Kiedy dotrzemy do pustych węzłów lub przejdziemy przez całe drzewo w miejsca
 potencjalnie zawierające punkty w zakresie, kończymy rekurencję.  
-Wszystkie punktu zebrane po drodze \emph{muszą} być tymi, które leżą
+Wszystkie punkty zebrane po drodze \emph{muszą} być tymi, które leżą
 w zadanym prostokącie \([x_1, x_2] \times [y_1, y_2]\).
 \end{mdframed}
 
@@ -644,7 +644,7 @@ w zadanym prostokącie \([x_1, x_2] \times [y_1, y_2]\).
         \item \textbf{Układ węzłów drzewa:}
             \begin{itemize}
                 \item \texttt{kd-drzewo}: węzeł przechowuje pojedynczy punkt (mediana dla danej osi). Dzieli się na \emph{lewe} i \emph{prawe} poddrzewo.
-                \item \texttt{QuadTree}: węzeł może przechowywać wiele punktów (do pewnego limitu), potem następuje podział zwykle na cztery poddrzewa (\emph{NW}, \emph{NE}, \emph{SW}, \emph{SE}).
+                \item \texttt{QuadTree}: węzeł może przechowywać wiele punktów (do pewnego limitu), potem następuje podział na cztery poddrzewa (\emph{NW}, \emph{NE}, \emph{SW}, \emph{SE}).
             \end{itemize}
             \vspace{0.4em}
             
