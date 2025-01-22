@@ -1,3 +1,4 @@
 * linguist-language=Python
 *.ipynb linguist-language=
+*.ipynb linguist-generated
 docs/* linguist-language=
